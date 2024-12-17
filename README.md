@@ -1,4 +1,4 @@
-# FrontendAngularTechnicalTest
+# Project Assignment Web Test
 
 Requirements
 ============
