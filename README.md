@@ -1,27 +1,38 @@
-# ProjectAssignment
+# FrontendAngularTechnicalTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+Requirements
+============
+* Node v18.19
+* Angular ver 18
 
-## Development server
+Instalation
+============
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone repo using ssh (make sure already have ssh on github account)
 
-## Code scaffolding
+    git@github.com:mutiaayuriz/project-assignment-web.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Install node module
 
-## Build
+    npm install
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+atau 
 
-## Running unit tests
+    npm install --force
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+Running Project
+============
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For cleaning cache before running project you can use:
 
-## Further help
+    npm cache verify
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+For running project you can use:
+
+    npm run start
+
+For running test you can use:
+
+    ng test
