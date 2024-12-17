@@ -1,6 +1,6 @@
 import * as L from 'leaflet';
 import { Component, OnInit } from '@angular/core';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ListService } from '../service/api/list.service';
 import { Currencies } from '../service/interface/list.interface';
@@ -15,8 +15,8 @@ import { Currencies } from '../service/interface/list.interface';
 export class DetailComponent implements OnInit {
   constructor(private service: ListService) {}
 
-  private dataSelected: any;
-  private dataKerjasama: Array<any> = [];
+  dataSelected: any = '';
+  dataKerjasama: Array<any> = [];
   public dataDetail: any;
   public currencyType: Currencies = { name: '', symbol: '' };
   public languageType: string = '';
@@ -24,17 +24,22 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     let getDataKerjasama: any = localStorage.getItem('kerjasama');
-    this.dataKerjasama = JSON.parse(getDataKerjasama);
+    if (getDataKerjasama !== null) {
+      this.dataKerjasama = JSON.parse(getDataKerjasama);
+    }
+
     this.dataSelected = localStorage.getItem('selectedCountry');
 
     if (this.dataKerjasama.length > 0) {
-      this.statusKerjasama = this.dataKerjasama.find((value) => {
-        if (value.name.common === JSON.parse(this.dataSelected)) {
-          return true;
-        } else {
-          return false;
-        }
-      });
+      if (this.dataSelected) {
+        this.statusKerjasama = this.dataKerjasama.find((value) => {
+          if (value?.name?.common === JSON.parse(this.dataSelected)) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+      }
     }
 
     this.service
@@ -56,7 +61,7 @@ export class DetailComponent implements OnInit {
   addKerjasama() {
     if (this.dataKerjasama.length > 0) {
       let checkDuplicate = this.dataKerjasama.find((value) => {
-        if (value.name.common === this.dataDetail) {
+        if (value?.name?.common === this.dataDetail) {
           return true;
         } else {
           return false;
@@ -78,7 +83,7 @@ export class DetailComponent implements OnInit {
     let filterData = [];
     if (this.dataKerjasama.length > 1) {
       filterData = this.dataKerjasama.filter((value) => {
-        if (value.name.common !== this.dataDetail.name.common) {
+        if (value?.name?.common !== this.dataDetail?.name?.common) {
           return value;
         }
       });
@@ -102,7 +107,9 @@ export class DetailComponent implements OnInit {
 
     osm.addTo(map);
     var marker = L.marker(data.capitalInfo.latlng).addTo(map);
-    marker.bindPopup('<b>Capital of ' + data.name.common + '</b>').openPopup();
+    marker
+      .bindPopup('<b>Capital of ' + data?.name?.common + '</b>')
+      .openPopup();
   }
 
   private initCurrency(data: any) {

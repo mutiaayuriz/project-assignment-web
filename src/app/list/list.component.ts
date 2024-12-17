@@ -36,7 +36,9 @@ export class ListComponent implements OnInit {
     });
 
     let getDataKerjasama: any = localStorage.getItem('kerjasama');
-    this.dataKerjasama = JSON.parse(getDataKerjasama);
+    if (getDataKerjasama !== null) {
+      this.dataKerjasama = JSON.parse(getDataKerjasama);
+    }
   }
 
   detailCountry(row: Country) {
