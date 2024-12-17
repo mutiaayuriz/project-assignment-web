@@ -50,11 +50,30 @@ describe('DetailComponent', () => {
     fixture = TestBed.createComponent(DetailComponent);
     component = fixture.componentInstance;
     component.dataSelected = mockData[0].name.common;
+    component.dataDetail = mockData[0];
     fixture.detectChanges();
   });
 
   it('should detail component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('have name and flag country selected', () => {
+    fixture = TestBed.createComponent(DetailComponent);
+    const nElement = fixture.nativeElement;
+    fixture.detectChanges();
+    expect(component.dataDetail).toBeTruthy();
+    expect(nElement.querySelector('h1')).toBeDefined();
+    const flag = nElement.querySelector('.detail-country-body-left-desc-img');
+    expect(flag).toBeDefined();
+  });
+
+  it('have maps country selected', () => {
+    fixture = TestBed.createComponent(DetailComponent);
+    const nElement = fixture.nativeElement;
+    fixture.detectChanges();
+    const maps = nElement.querySelector('#map');
+    expect(maps).toBeDefined();
   });
 
 });
