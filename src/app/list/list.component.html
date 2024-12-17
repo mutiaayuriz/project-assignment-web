@@ -1,0 +1,83 @@
+<div id="list-country">
+  <mat-tab-group (selectedTabChange)="selectTab($event)">
+    <mat-tab label="All List Negara">
+      <table mat-table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element?.name?.common ?? "-" }}
+          </td>
+        </ng-container>
+
+        <!-- Flag Column -->
+        <ng-container matColumnDef="flag">
+          <th mat-header-cell *matHeaderCellDef>Flag</th>
+          <td mat-cell *matCellDef="let element">
+            <img src="{{ element.flags.png }}" alt="" />
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="detailCountry(row)"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        class="mat-paginator-sticky"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </mat-tab>
+
+    <mat-tab label="All List Kerja Sama Negara">
+      @if (totalData > 0) {
+      <table mat-table [dataSource]="dataSource">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element?.name?.common ?? "-" }}
+          </td>
+        </ng-container>
+
+        <!-- Flag Column -->
+        <ng-container matColumnDef="flag">
+          <th mat-header-cell *matHeaderCellDef>Flag</th>
+          <td mat-cell *matCellDef="let element">
+            <img src="{{ element.flags.png }}" alt="" />
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="detailCountry(row)"
+        ></tr>
+      </table>
+      <mat-paginator
+        class="mat-paginator-sticky-kerjasama"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page"
+        [length]="totalData"
+      >
+      </mat-paginator>
+      } @else {
+      <div class="list-country-empty">No data to display</div>
+      }
+    </mat-tab>
+  </mat-tab-group>
+</div>

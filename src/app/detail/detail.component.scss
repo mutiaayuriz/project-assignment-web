@@ -1,0 +1,123 @@
+#detail-country {
+  padding: 12px;
+  .detail-country-title {
+    display: flex;
+    width: 100%;
+    background-color: gainsboro;
+  }
+  .detail-country-title-left {
+    width: 70%;
+    display: flex;
+    padding: 12px 8px;
+    margin: auto;
+    text-align: center;
+    .detail-country-title-label {
+      margin: auto;
+    }
+  }
+  .detail-country-title-right {
+    width: 30%;
+    background-color: gainsboro;
+    padding: 12px 8px;
+    text-align: end;
+    button {
+      margin-top: 4px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .detail-country-body {
+      width: 100%;
+      margin-top: 12px;
+      display: grid;
+
+      .detail-country-body-left {
+        display: grid;
+        width: 100%;
+
+        .detail-country-body-left-desc {
+          display: flex;
+          padding: 12px;
+          @media only screen and (max-width: 768px) {
+            .detail-country-body-left-label {
+              width: 100%;
+            }
+          }
+          .detail-country-body-left-label {
+            font-weight: 600;
+          }
+          .detail-country-body-left-value {
+            padding-left: 4px;
+            width: 80%;
+          }
+        }
+        .detail-country-body-left-desc-title {
+          display: flex;
+          justify-content: space-between;
+          padding: 12px;
+          img {
+            height: 10vh;
+          }
+        }
+
+        // .detail-country-body-left-desc-title-img {
+        //   height: 10vh;
+        // }
+      }
+      .detail-country-body-right {
+        width: 100%;
+      }
+    }
+  }
+  @media only screen and (min-width: 769px) {
+    .detail-country-body {
+      width: 100%;
+      margin-top: 12px;
+      display: flex;
+      .detail-country-body-left {
+        display: grid;
+        width: 50%;
+        .detail-country-body-left-desc {
+          display: flex;
+          padding: 12px;
+          @media only screen and (max-width: 768px) {
+            .detail-country-body-left-label {
+              width: 100%;
+            }
+          }
+          .detail-country-body-left-label {
+            width: 18%;
+            font-weight: 600;
+          }
+          .detail-country-body-left-value {
+            padding-left: 4px;
+            width: 80%;
+          }
+        }
+        .detail-country-body-left-desc-title {
+          display: flex;
+          justify-content: space-between;
+          padding: 12px;
+          .detail-country-body-left-desc-title-img {
+            height: 20vh;
+          }
+        }
+      }
+      .detail-country-body-right {
+        width: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #map {
+    height: 30vh;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  #map {
+    height: 100vh;
+  }
+}

@@ -1,0 +1,33 @@
+#list-country {
+  padding: 12px;
+  mat-tab-group {
+    max-height: 95vh;
+  }
+  table {
+    overflow: auto;
+    width: 100%;
+    border: 0.5px solid lightgray;
+    margin-top: 8px;
+    th {
+      background-color: lightgray;
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 150px;
+    height: fit-content;
+    margin: 12px 0;
+  }
+  .mat-paginator-sticky, .mat-paginator-sticky-kerjasama {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+    background-color: lightgray;
+  }
+  .list-country-empty {
+    text-align: center;
+    max-height: 70vh;
+    padding: 12px;
+    background-color: gainsboro;
+  }
+}

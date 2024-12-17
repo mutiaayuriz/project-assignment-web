@@ -1,0 +1,93 @@
+<div id="detail-country">
+  <div class="detail-country-title">
+    <div class="detail-country-title-left">
+      <div class="detail-country-title-button" (click)="back()">
+        <mat-icon>arrow_back</mat-icon>
+      </div>
+      <div class="detail-country-title-label">DETAIL COUNTRY</div>
+    </div>
+    <div class="detail-country-title-right">
+      @if (statusKerjasama) {
+      <button type="button" (click)="cancelKerjasama()">
+        Batalkan Kerjasama Negara
+      </button>
+      } @else {
+      <button type="button" (click)="addKerjasama()">Kerjasama Negara</button>
+      }
+    </div>
+  </div>
+
+  <div class="detail-country-body">
+    <div class="detail-country-body-left">
+      @if (dataDetail) {
+      <div class="detail-country-body-left-desc-title">
+        <h1>{{ dataDetail.name.common }}</h1>
+        <img
+          class="detail-country-body-left-desc-img"
+          src="{{ dataDetail.flags.png }}"
+          alt=""
+        />
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Population</span>:
+        <span class="detail-country-body-left-value">{{
+          dataDetail.population
+        }}</span>
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Currency</span>:
+        <span class="detail-country-body-left-value">{{
+          currencyType
+            ? currencyType.name + " (" + currencyType.symbol + ")"
+            : "-"
+        }}</span>
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Capital</span>:
+        <span class="detail-country-body-left-value">{{
+          dataDetail.capital ? dataDetail.capital[0] : "-"
+        }}</span>
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Region</span>:
+        <span class="detail-country-body-left-value">{{
+          dataDetail.region ? dataDetail.region : "-"
+        }}</span>
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Language</span>:
+        <span class="detail-country-body-left-value">
+          {{ languageType ? languageType : "-" }}</span
+        >
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Independent country</span>:
+        <span class="detail-country-body-left-value">{{
+          dataDetail.independent ? "Yes" : "No"
+        }}</span>
+      </div>
+
+      <div class="detail-country-body-left-desc">
+        <span class="detail-country-body-left-label">Flag Description</span>:
+        <span class="detail-country-body-left-value">{{
+          dataDetail.flags.alt ?? "-"
+        }}</span>
+      </div>
+
+      } @else {
+      <mat-spinner></mat-spinner>
+      }
+    </div>
+    <div class="detail-country-body-right">
+      <div>
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+</div>
