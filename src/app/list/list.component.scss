@@ -35,3 +35,11 @@
     background-color: gainsboro;
   }
 }
+
+::ng-deep .mat-mdc-tab-labels {
+  height: 30px;
+}
+::ng-deep .mdc-tab.mdc-tab--active{
+  background-color: gray !important;
+  font-weight: 900;
+}
