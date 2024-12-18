@@ -34,6 +34,7 @@
         [pageSize]="10"
         [pageSizeOptions]="[5, 10, 25, 100]"
         aria-label="Select page"
+        [hidePageSize]="true"
       >
       </mat-paginator>
     </mat-tab>
@@ -73,6 +74,7 @@
         [pageSizeOptions]="[5, 10, 25, 100]"
         aria-label="Select page"
         [length]="totalData"
+        [hidePageSize]="true"
       >
       </mat-paginator>
       } @else {
